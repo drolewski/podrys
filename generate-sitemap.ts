@@ -23,5 +23,5 @@ ${routes
 </urlset>
 `;
 
-writeFileSync(resolve('dist', 'sitemap.xml'), sitemap);
+writeFileSync(resolve('public', 'sitemap.xml'), sitemap);
 console.log('✅ sitemap.xml generated successfully.!');
