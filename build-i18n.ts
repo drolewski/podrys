@@ -34,10 +34,6 @@ async function buildI18n(): Promise<void> {
                     const langOutputDir = path.join(outputDir, langCode);
                     await fs.mkdir(langOutputDir, { recursive: true });
                     await fs.writeFile(path.join(langOutputDir, 'index.html'), outputHtml);
-
-                    await fs.cp(path.resolve(__dirname, 'src'), path.join(langOutputDir, 'src'), {
-                        recursive: true,
-                    });
                 } catch (error) {
                     console.error(`Error during localization file processing ${localeFile}:`, error);
                 }

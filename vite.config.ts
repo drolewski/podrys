@@ -9,29 +9,29 @@ export default defineConfig({
             targets: [
                 {
                     src: './public/*',
-                    dest: './dist/pl'
+                    dest: './pl'
                 },
                 {
                     src: './public/*',
-                    dest: './dist/en'
+                    dest: './en'
                 }
             ]
         })
     ],
     build: {
+        outDir: 'dist',
+        emptyOutDir: false,
         copyPublicDir: false,
-        // rollupOptions: {
-        //     input: {
-        //         pl: 'dist/pl/index.html',
-        //         en: 'dist/en/index.html'
-        //     },
-        //     output: {
-        //         entryFileNames: 'assets/[name].js',
-        //         chunkFileNames: 'assets/[name]-[hash].js',
-        //         assetFileNames: 'assets/[name]-[hash][extname]'
-        //     }
-        // },
-        outDir: './dist',
-        emptyOutDir: true
-    }
+        rollupOptions: {
+            input: {
+                pl: './dist/pl/index.html',
+                en: './dist/en/index.html',
+            },
+            output: {
+                entryFileNames: '[name]/assets/[name]-[hash].js',
+                chunkFileNames: '[name]/assets/chunks/[name]-[hash].js',
+                assetFileNames: '[name]/assets/[name]-[hash].[ext]',
+            },
+        },
+    },
 })
