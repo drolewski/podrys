@@ -2,14 +2,14 @@ import {defineConfig} from 'vite'
 import {viteStaticCopy} from "vite-plugin-static-copy";
 
 export default defineConfig({
-    root: 'src',
+    root: '',
     base: '/pl',
     plugins: [
         viteStaticCopy({
             targets: [
                 {
-                    src: '../public/*',
-                    dest: ''
+                    src: 'public/*',
+                    dest: 'dist'
                 }
             ]
         })
@@ -17,8 +17,8 @@ export default defineConfig({
     build: {
         rollupOptions: {
             input: {
-                pl: 'src/pl/index.html',
-                en: 'src/en/index.html'
+                pl: 'dist/pl/index.html',
+                en: 'dist/en/index.html'
             },
             output: {
                 entryFileNames: 'assets/[name].js',
