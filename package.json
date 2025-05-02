@@ -1,0 +1,17 @@
+{
+  "name": "podrys",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "generate": "ts-node generate-sitemap.ts",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "install": "npm install ts-node -D"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "~5.7.2",
+    "vite": "^6.3.1"
+  }
+}
