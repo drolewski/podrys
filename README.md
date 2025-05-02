@@ -14,6 +14,8 @@ Static webpage of podrys architecture studio
 - sitemap.xml
 - html configuration
 - webp image files
+- gzip or brotli on hosting
+- JSON-LD
 
 ## Build
 1. npm install

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://twojastrona.pl/sitemap.xml
+Sitemap: https://podrys.pl/sitemap.xml

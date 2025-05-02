@@ -2,6 +2,7 @@ import { writeFileSync } from 'fs';
 import { resolve } from 'path';
 
 const baseUrl = 'https://podrys.pl';
+const date = (new Date()).toISOString();
 
 const routes = [
     '',
@@ -15,6 +16,7 @@ ${routes
     .map(
         (route) => `  <url>
     <loc>${baseUrl}/${route}</loc>
+    <lastmod>${date}</lastmod>
   </url>`
     )
     .join('\n')}
