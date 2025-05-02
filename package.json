@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && ts-node generate-sitemap.ts",
+    "build": "tsc && ts-node build-i18n.ts && ts-node generate-sitemap.ts && vite build",
     "preview": "vite preview",
     "install": "npm install ts-node -D"
   },
