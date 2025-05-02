@@ -27,7 +27,8 @@ async function buildI18n(): Promise<void> {
                     let outputHtml = template;
                     for (const key in localeData) {
                         if (localeData.hasOwnProperty(key)) {
-                            outputHtml = outputHtml.replace(`{{${key}}}`, localeData[key] || '');
+                            const regexpString = `{{${key}}}`
+                            outputHtml = outputHtml.replace(RegExp(regexpString, 'ig'), localeData[key] || '');
                         }
                     }
 
