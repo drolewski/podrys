@@ -31,7 +31,7 @@ async function buildI18n(): Promise<void> {
                         }
                     }
 
-                    outputHtml = outputHtml.replace('src="/assets/', `src="/${langCode}/assets/`);
+                    outputHtml = outputHtml.replace('src="/assets/', `src="/podrys/${langCode}/assets/`);
 
                     const langOutputDir = path.join(outputDir, langCode);
                     await fs.mkdir(langOutputDir, { recursive: true });
