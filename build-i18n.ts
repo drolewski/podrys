@@ -35,11 +35,13 @@ async function buildI18n(): Promise<void> {
 
                     let langOutputDir = outputDir;
                     if (langCode !== baseLang) {
-                        outputHtml = outputHtml.replace('src="/assets/', `src="/podrys/${langCode}/assets/`);
+                        outputHtml = outputHtml.replace(RegExp('src="/assets/', 'g'), `src="/podrys/${langCode}/assets/`);
+                        outputHtml = outputHtml.replace(RegExp('href="/assets/', 'g'), `href="/podrys/${langCode}/assets/`);
                         langOutputDir = path.join(outputDir, langCode);
                         await fs.mkdir(langOutputDir, { recursive: true });
                     } else {
-                        outputHtml = outputHtml.replace('src="/assets/', `src="/podrys/assets/`);
+                        outputHtml = outputHtml.replace(RegExp('src="/assets/', 'g'), `src="/podrys/assets/`);
+                        outputHtml = outputHtml.replace(RegExp('href="/assets/', 'g'), `href="/podrys/assets/`);
                     }
 
                     await fs.writeFile(path.join(langOutputDir, 'index.html'), outputHtml);
