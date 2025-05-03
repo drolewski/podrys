@@ -40,13 +40,9 @@ async function buildI18n(): Promise<void> {
                     const buildFiles = await fs.readdir(outputDir);
                     const langs = locales.map(l => l.slice(0, -5));
                     for (const file of buildFiles) {
-                        console.log(`${file} - ${localeFile}`);
-                        console.log(`${langCode}`);
                         if (!file.endsWith('index.html') && !langs.includes(file) ) {
                             const filePath = path.join(outputDir, file);
                             const destPath = path.join(langOutputDir, file);
-                            console.log(filePath);
-                            console.log(destPath);
                             await fs.cp(filePath, destPath, {recursive: true});
                         }
                     }
