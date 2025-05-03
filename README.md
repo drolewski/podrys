@@ -22,5 +22,12 @@ Static webpage of podrys architecture studio
 2. npm run build
 3. Copy file to the destination static file nginx server
 
+## TODO
+1. Special build for gh pages
+2. Configuration for production build
+3. Links
+4. Icon
+5. Move SEO/texts to localizations
+
 ## Copyrights ©
 All rights reserved by Dominik Rolewski
