@@ -23,11 +23,12 @@ Static webpage of podrys architecture studio
 3. Copy file to the destination static file nginx server
 
 ## TODO
-1. Special build for gh pages
-2. Configuration for production build
-3. Links
-4. Icon
-5. Move SEO/texts to localizations
+1. Move SEO/texts to localizations
+2. Implement css color palette
+3. Implement css variables
+4. Implement css mixins
+5. Implement navigation for web
+6. Implement language switcher
 
 ## Copyrights ©
 All rights reserved by Dominik Rolewski
