@@ -1,4 +1,5 @@
 {
   "hello": "Cześć!",
-  "changeLanguage": "/en/"
+  "changeLanguage": "/en/",
+  "lang": "pl"
 }

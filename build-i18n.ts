@@ -2,7 +2,7 @@ import * as fs from 'fs/promises';
 import * as path from 'path';
 
 const localesDir = path.resolve(__dirname, 'locales');
-const templateFile = path.resolve(__dirname, 'index.html');
+const templateFile = path.resolve(__dirname, 'dist' ,'index.html');
 const outputDir = path.resolve(__dirname, 'dist');
 
 interface LocaleData {
@@ -14,7 +14,6 @@ async function buildI18n(): Promise<void> {
         const template = await fs.readFile(templateFile, 'utf-8');
         const locales = await fs.readdir(localesDir);
 
-        await fs.rm(outputDir, { recursive: true, force: true });
         await fs.mkdir(outputDir, { recursive: true });
 
         for (const localeFile of locales) {
@@ -32,13 +31,35 @@ async function buildI18n(): Promise<void> {
                         }
                     }
 
+                    outputHtml = outputHtml.replace('src="/assets/', `src="/${langCode}/assets/`);
+
                     const langOutputDir = path.join(outputDir, langCode);
                     await fs.mkdir(langOutputDir, { recursive: true });
                     await fs.writeFile(path.join(langOutputDir, 'index.html'), outputHtml);
+
+                    const buildFiles = await fs.readdir(outputDir);
+                    const langs = locales.map(l => l.slice(0, -5));
+                    for (const file of buildFiles) {
+                        console.log(`${file} - ${localeFile}`);
+                        console.log(`${langCode}`);
+                        if (!file.endsWith('index.html') && !langs.includes(file) ) {
+                            const filePath = path.join(outputDir, file);
+                            const destPath = path.join(langOutputDir, file);
+                            console.log(filePath);
+                            console.log(destPath);
+                            await fs.cp(filePath, destPath, {recursive: true});
+                        }
+                    }
                 } catch (error) {
                     console.error(`Error during localization file processing ${localeFile}:`, error);
                 }
             }
+        }
+
+        const toRemove = ['dist/assets', 'dist/index.html', 'dist/robots.txt', 'dist/sitemap.xml'];
+        for (const p of toRemove) {
+            const directoryToRemove: string = path.resolve(__dirname, p);
+            await fs.rm(directoryToRemove, { recursive: true, force: true })
         }
 
         console.log('i18n build successfully.');

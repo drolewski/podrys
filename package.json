@@ -3,9 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev-pl": "npm run build && vite dist/pl",
-    "dev-en": "npm run build && vite dist/pl",
-    "build": "tsc && ts-node build-i18n.ts && ts-node generate-sitemap.ts && vite build && ts-node cleanup.ts",
+    "dev": "vite",
+    "build": "tsc && vite build && ts-node generate-sitemap.ts && ts-node build-i18n.ts",
     "preview": "vite preview",
     "install": "npm install ts-node -D"
   },
