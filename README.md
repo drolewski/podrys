@@ -23,6 +23,7 @@ Static webpage of podrys architecture studio
 3. Copy file to the destination static file nginx server
 
 ## TODO
+1. !Configure robota.txt and sitemap.xml for cross lang site
 1. Special build for gh pages
 2. Configuration for production build
 3. Links
