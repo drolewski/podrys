@@ -2,6 +2,7 @@
   "name": "podrys",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://drolewski.github.io/podrys",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build && ts-node generate-sitemap.ts && ts-node build-i18n.ts",

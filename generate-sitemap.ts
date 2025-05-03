@@ -1,7 +1,7 @@
 import { writeFileSync } from 'fs';
 import { resolve } from 'path';
 
-const baseUrl = 'https://podrys.pl';
+const baseUrl = 'https://drolewski.github.io/podrys';
 const date = (new Date()).toISOString();
 
 const routes = [
