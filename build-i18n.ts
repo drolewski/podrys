@@ -2,8 +2,10 @@ import * as fs from 'fs/promises';
 import * as path from 'path';
 
 const localesDir = path.resolve(__dirname, 'locales');
-const templateFile = path.resolve(__dirname, 'dist' ,'index.html');
+const templateFile = path.resolve(__dirname, 'dist-tmp' ,'index.html');
 const outputDir = path.resolve(__dirname, 'dist');
+const srcDir = path.resolve(__dirname, 'dist-tmp');
+const baseLang = 'pl';
 
 interface LocaleData {
     [key: string]: string | undefined;
@@ -31,17 +33,22 @@ async function buildI18n(): Promise<void> {
                         }
                     }
 
-                    outputHtml = outputHtml.replace('src="/assets/', `src="/podrys/${langCode}/assets/`);
+                    let langOutputDir = outputDir;
+                    if (langCode !== baseLang) {
+                        outputHtml = outputHtml.replace('src="/assets/', `src="/podrys/${langCode}/assets/`);
+                        langOutputDir = path.join(outputDir, langCode);
+                        await fs.mkdir(langOutputDir, { recursive: true });
+                    } else {
+                        outputHtml = outputHtml.replace('src="/assets/', `src="/podrys/assets/`);
+                    }
 
-                    const langOutputDir = path.join(outputDir, langCode);
-                    await fs.mkdir(langOutputDir, { recursive: true });
                     await fs.writeFile(path.join(langOutputDir, 'index.html'), outputHtml);
 
-                    const buildFiles = await fs.readdir(outputDir);
+                    const buildFiles = await fs.readdir(srcDir);
                     const langs = locales.map(l => l.slice(0, -5));
                     for (const file of buildFiles) {
-                        if (!file.endsWith('index.html') && !langs.includes(file) ) {
-                            const filePath = path.join(outputDir, file);
+                        if (!file.endsWith('index.html') && !langs.includes(file)) {
+                            const filePath = path.join(srcDir, file);
                             const destPath = path.join(langOutputDir, file);
                             await fs.cp(filePath, destPath, {recursive: true});
                         }
@@ -52,11 +59,7 @@ async function buildI18n(): Promise<void> {
             }
         }
 
-        const toRemove = ['dist/assets', 'dist/index.html', 'dist/robots.txt', 'dist/sitemap.xml'];
-        for (const p of toRemove) {
-            const directoryToRemove: string = path.resolve(__dirname, p);
-            await fs.rm(directoryToRemove, { recursive: true, force: true })
-        }
+        await fs.rm(srcDir, { recursive: true, force: true });
 
         console.log('i18n build successfully.');
     } catch (error) {
