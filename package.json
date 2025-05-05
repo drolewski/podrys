@@ -13,6 +13,7 @@
     "install": "npm install ts-node -D"
   },
   "devDependencies": {
+    "sass": "^1.87.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.7.2",
     "vite": "^6.3.1",

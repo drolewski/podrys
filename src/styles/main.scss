@@ -1,0 +1,10 @@
+@use 'variables' as *;
+@use 'mixins';
+
+#app {
+  font-family: 'Inter', sans-serif;
+  background-color: #f0f0f0;
+  color: $color-primary-olive;
+  margin: 0;
+  padding: 20px;
+}
