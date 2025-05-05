@@ -1,2 +1,2 @@
-const element = document.querySelector('#xd') as HTMLElement;
-element.innerHTML = 'xdddddd';
+// @ts-ignore
+import "./navigation.scss"

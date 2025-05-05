@@ -1,0 +1,88 @@
+@use '../../styles/variables';
+
+.font-navigation {
+  font-family: variables.$font-family-primary;
+  font-weight: variables.$font-weight-bold;
+  font-size: variables.$font-size-base;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: variables.$color-primary-beige;
+  padding: 15px 30px;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  max-width: 20vw;
+  height: auto;
+  display: block;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 25px; /* Odstęp między linkami */
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em;
+  text-transform: lowercase;
+  transition: color 0.3s ease;
+}
+
+/* Indywidualne kolory linków */
+.link-proces {
+  color: #d97746; /* Pomarańczowo-brązowy */
+}
+
+.link-realizacje {
+  color: #8f8c5d; /* Oliwkowo-brązowy */
+}
+
+.link-kontakt {
+  color: #d97746; /* Pomarańczowo-brązowy */
+}
+
+/* Efekt hover dla linków (opcjonalnie) */
+.nav-links a:hover {
+  color: #bf6a3f; /* Ciemniejszy kolor przy najechaniu */
+}
+
+
+/* Stylizacja menu hamburger */
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px; /* Szerokość ikony */
+  height: 18px; /* Wysokość ikony */
+  cursor: pointer;
+  margin-left: 30px; /* Odstęp od linków */
+}
+
+// TODO Ikona hamburgera
+.hamburger-menu .bar {
+  height: 3px; /* Grubość kresek */
+  width: 100%;
+  background-color: #d97746; /* Kolor kresek */
+  border-radius: 2px; /* Lekko zaokrąglone rogi */
+}
