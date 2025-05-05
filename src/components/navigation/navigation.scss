@@ -1,11 +1,5 @@
 @use '../../styles/variables';
 
-.font-navigation {
-  font-family: variables.$font-family-primary;
-  font-weight: variables.$font-weight-bold;
-  font-size: variables.$font-size-base;
-}
-
 .navbar {
   display: flex;
   justify-content: space-between;
