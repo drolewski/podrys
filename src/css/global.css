@@ -16,3 +16,31 @@
     --color-secondary-white: #F1EAE1;
     --color-primary-black: #181816;
 }
+
+/* 📱 Mobile: max 479px */
+@media (max-width: 479px) {
+    .responsive-text {
+        font-size: 14px;
+    }
+}
+
+/* 📲 Tablet: 480px-767px */
+@media (min-width: 480px) and (max-width: 767px) {
+    .responsive-text {
+        font-size: 16px;
+    }
+}
+
+/* 💻 Desktop: 768px–1199px */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .responsive-text {
+        font-size: 18px;
+    }
+}
+
+/* 🖥️ High-Res: min 1200px */
+@media (min-width: 1200px) {
+    .responsive-text {
+        font-size: 20px;
+    }
+}
