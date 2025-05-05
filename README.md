@@ -23,14 +23,18 @@ Static webpage of podrys architecture studio
 3. Copy file to the destination static file nginx server
 
 ## TODO
-1. Move SEO/texts to localizations
-2. Implement css color palette
-3. Implement css variables
-4. Implement css mixins
-5. Implement navigation for web
-6. Implement language switcher
+1. Implement css color palette
+2. Implement css variables
+3. Implement css mixins
+4. Implement navigation for web
+5. Implement language switcher
+
+======
 
 n. Refactor build-i18n to more generic model.
+
+n+1. Tłumaczenie pathów na języki
+n+2. Tłumaczenia formatowanie liczb :)
 
 ## Copyrights ©
 All rights reserved by Dominik Rolewski
