@@ -23,8 +23,6 @@ Static webpage of podrys architecture studio
 3. Copy file to the destination static file nginx server
 
 ## TODO
-1. Implement css color palette
-2. Implement css variables
 3. Implement css mixins
 4. Implement navigation for web
 5. Implement language switcher

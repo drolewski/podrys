@@ -5,3 +5,14 @@
     margin: 0;
     padding: 20px;
 }
+
+:root {
+    --color-primary-orange: #E36F54;
+    --color-primary-beige: #EDE9E0;
+    --color-secondary-beige: #DFC5A3;
+    --color-primary-olive: #898256;
+    --color-primary-yellow: #ECD496;
+    --color-primary-white: #FFFFFF;
+    --color-secondary-white: #F1EAE1;
+    --color-primary-black: #181816;
+}
