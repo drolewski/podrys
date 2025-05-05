@@ -23,8 +23,10 @@ Static webpage of podrys architecture studio
 3. Copy file to the destination static file nginx server
 
 ## TODO
-2. Implement navigation bar for web
-3. Implement language switcher
+1. Implement navigation bar for web
+2. Implement language switcher
+3. Implement footer
+4. Implement main page content
 
 ======
 
