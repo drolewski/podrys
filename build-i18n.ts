@@ -35,21 +35,19 @@ async function buildI18n(): Promise<void> {
 
                     let langOutputDir = outputDir;
                     if (langCode !== baseLang) {
-                        outputHtml = outputHtml.replace(RegExp('src="/assets/', 'g'), `src="/podrys/${langCode}/assets/`);
-                        outputHtml = outputHtml.replace(RegExp('href="/assets/', 'g'), `href="/podrys/${langCode}/assets/`);
                         langOutputDir = path.join(outputDir, langCode);
                         await fs.mkdir(langOutputDir, { recursive: true });
-                    } else {
-                        outputHtml = outputHtml.replace(RegExp('src="/assets/', 'g'), `src="/podrys/assets/`);
-                        outputHtml = outputHtml.replace(RegExp('href="/assets/', 'g'), `href="/podrys/assets/`);
                     }
+
+                    outputHtml = outputHtml.replace(RegExp('src="/assets/', 'g'), `src="/podrys/assets/`);
+                    outputHtml = outputHtml.replace(RegExp('href="/assets/', 'g'), `href="/podrys/assets/`);
 
                     await fs.writeFile(path.join(langOutputDir, 'index.html'), outputHtml);
 
                     const buildFiles = await fs.readdir(srcDir);
                     const langs = locales.map(l => l.slice(0, -5));
                     for (const file of buildFiles) {
-                        if (!file.endsWith('index.html') && !langs.includes(file)) {
+                        if (!file.endsWith('index.html') && !(langs.includes(langOutputDir.slice(-2)) && file.endsWith('assets'))) {
                             const filePath = path.join(srcDir, file);
                             const destPath = path.join(langOutputDir, file);
                             await fs.cp(filePath, destPath, {recursive: true});

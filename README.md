@@ -23,7 +23,6 @@ Static webpage of podrys architecture studio
 3. Copy file to the destination static file nginx server
 
 ## TODO
-1'. Delete duplicated assets in en directory
 1". Implement sub pages build in repository
 1. Move SEO/texts to localizations
 2. Implement css color palette
