@@ -3,6 +3,7 @@
 
 .footer {
   display: flex;
+  position: relative;
   justify-content: space-between;
   align-items: flex-start;
   background-color: variables.$color-primary-orange;
@@ -65,10 +66,23 @@
 }
 
 .footer__decoration {
+  position: absolute;
   pointer-events: none;
   user-select: none;
   z-index: 0;
   opacity: 1;
-  max-width: 40vw;
   height: auto;
+  max-width: 45vw;
+}
+
+.footer__decoration--left {
+  bottom: 0;
+  left: 0;
+  transform: translate(-10%, 10%); // lekko cofnięte, ale nadal w stopce
+}
+
+.footer__decoration--right {
+  top: 0;
+  right: 0;
+  transform: translate(10%, -10%); // jak wyżej
 }
