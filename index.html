@@ -84,7 +84,12 @@
   </head>
   <body>
     <script type="module" src="/src/main.js"></script>
+    <div class="page-wrapper">
     <%- include('./src/components/navigation/navigation.html') %>
+    <main class="content">
+      <div>Content</div>
+    </main>
     <%- include('./src/components/footer/footer.html') %>
+    </div>
   </body>
 </html>
