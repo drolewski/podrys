@@ -7,15 +7,8 @@
   color: variables.$color-primary-white;
   display: flex;
   justify-content: space-between;
-  padding: 40px;
   flex-wrap: wrap;
   overflow: hidden;
-
-  .footer-left,
-  .footer-right {
-    position: relative;
-    z-index: 0;
-  }
 }
 
 .footer-left {
