@@ -1,12 +1,32 @@
 @use '../../styles/variables';
+@use '../../styles/mixins';
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: variables.$color-primary-beige;
-  padding: 15px 30px;
-  width: 100%;
+  width: 100vw;
+
+  @include mixins.desktop {
+    min-height: 10vh;
+    padding: 2vh 2vw;
+  }
+
+  @include mixins.high-res {
+    min-height: 10vh;
+    padding: 2vh 2vw;
+  }
+
+  @include mixins.tablet {
+    min-height: 12vh;
+    padding: 2vh 2vw;
+  }
+
+  @include mixins.mobile {
+    min-height: 12vh;
+    padding: 2vh 2vw;
+  }
 }
 
 .logo {
@@ -15,7 +35,7 @@
 }
 
 .logo-image {
-  max-width: 20vw;
+  max-width: 5vw;
   height: auto;
   display: block;
 }
@@ -25,14 +45,28 @@
   align-items: center;
 }
 
-
 .nav-links {
   list-style: none;
   display: flex;
 }
 
 .nav-links li {
-  margin-left: 25px; /* Odstęp między linkami */
+  margin-left: 2vw;
+  @include mixins.desktop {
+    font-size: variables.$font-size-base;
+  }
+
+  @include mixins.high-res {
+    font-size: variables.$font-size-base;
+  }
+
+  @include mixins.tablet {
+    font-size: variables.$font-size-mobile;
+  }
+
+  @include mixins.mobile {
+    font-size: variables.$font-size-mobile;
+  }
 }
 
 .nav-links a {
@@ -41,42 +75,30 @@
   font-size: 1em;
   text-transform: lowercase;
   transition: color 0.3s ease;
+  color: variables.$color-primary-orange;
 }
 
-/* Indywidualne kolory linków */
-.link-proces {
-  color: #d97746; /* Pomarańczowo-brązowy */
+a.active {
+    color: variables.$color-primary-olive;
 }
 
-.link-realizacje {
-  color: #8f8c5d; /* Oliwkowo-brązowy */
-}
-
-.link-kontakt {
-  color: #d97746; /* Pomarańczowo-brązowy */
-}
-
-/* Efekt hover dla linków (opcjonalnie) */
 .nav-links a:hover {
-  color: #bf6a3f; /* Ciemniejszy kolor przy najechaniu */
+  color: variables.$color-secondary-orange;
 }
 
-
-/* Stylizacja menu hamburger */
 .hamburger-menu {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 25px; /* Szerokość ikony */
-  height: 18px; /* Wysokość ikony */
+  width: 25px;
+  height: 18px;
   cursor: pointer;
-  margin-left: 30px; /* Odstęp od linków */
+  margin-left: 30px;
 }
 
-// TODO Ikona hamburgera
 .hamburger-menu .bar {
-  height: 3px; /* Grubość kresek */
+  height: 3px;
   width: 100%;
-  background-color: #d97746; /* Kolor kresek */
-  border-radius: 2px; /* Lekko zaokrąglone rogi */
+  background-color: variables.$color-primary-orange;
+  border-radius: 2px;
 }
