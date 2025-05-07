@@ -2,15 +2,20 @@
 @use '../../styles/mixins';
 
 .footer {
-  display: flex;
   position: relative;
-  justify-content: space-between;
-  align-items: flex-start;
   background-color: variables.$color-primary-orange;
   color: variables.$color-primary-white;
+  display: flex;
+  justify-content: space-between;
   padding: 40px;
-  font-family: sans-serif;
   flex-wrap: wrap;
+  overflow: hidden; // Kluczowe: zapobiega wychodzeniu dekoracji
+
+  .footer-left,
+  .footer-right {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 .footer-left {
@@ -36,21 +41,21 @@
   }
 }
 
-.footer__right {
+.footer-right {
   text-align: center;
 
-  .footer__find {
+  .footer-find {
     font-weight: bold;
     margin-bottom: 1em;
   }
 
-  .footer__socials {
+  .footer-socials {
     display: flex;
     gap: 20px;
     justify-content: center;
   }
 
-  .footer__circle {
+  .footer-circle {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -59,7 +64,7 @@
   }
 }
 
-.footer__decoration {
+.footer-decoration {
   position: absolute;
   pointer-events: none;
   user-select: none;
@@ -69,12 +74,12 @@
   max-width: 45vw;
 }
 
-.footer__decoration--left {
+.footer-decoration-left {
   bottom: 0;
   left: 0;
 }
 
-.footer__decoration--right {
+.footer-decoration-right {
   top: 0;
   right: 0;
 }
