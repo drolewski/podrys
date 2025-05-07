@@ -23,13 +23,12 @@ Static webpage of podrys architecture studio
 3. Copy file to the destination static file nginx server
 
 ## TODO
-1. Implement navigation bar for web
-2. Implement language switcher
-3. Implement footer
-4. Implement main page content
+1. Implement footer
+2. Implement main page content
 
 ======
 
+n-1. 2. Implement language switcher
 n. Refactor build-i18n to more generic model.
 
 n+1. Tłumaczenie pathów na języki
